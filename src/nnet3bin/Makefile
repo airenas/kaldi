@@ -11,6 +11,7 @@ BINFILES = nnet3-init nnet3-info nnet3-get-egs nnet3-copy-egs nnet3-subset-egs \
    nnet3-compute-from-egs nnet3-train nnet3-am-init nnet3-am-train-transitions \
    nnet3-am-adjust-priors nnet3-am-copy nnet3-compute-prob \
    nnet3-average nnet3-am-info nnet3-combine nnet3-latgen-faster \
+   nnet3-latgen-faster-parallel-pipe \
    nnet3-latgen-faster-parallel nnet3-show-progress nnet3-align-compiled \
    nnet3-copy nnet3-get-egs-dense-targets nnet3-compute \
    nnet3-discriminative-get-egs nnet3-discriminative-copy-egs \
