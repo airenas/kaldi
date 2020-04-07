@@ -293,12 +293,13 @@ int main(int argc, char *argv[]) {
           new fst::BackoffDeterministicOnDemandFst<StdArc>(*lm_to_subtract_fst);
       data.lm_to_subtract_det_scale = new fst::ScaleDeterministicOnDemandFst(-data.lm_scale, lm_to_subtract_det_backoff);
     }
-
+    KALDI_LOG << "Reading rnnlm...";
     kaldi::nnet3::Nnet rnnlm;
     ReadKaldiObject(rnnlm_rxfilename, &rnnlm);
 
     KALDI_ASSERT(IsSimpleNnet(rnnlm));
 
+    KALDI_LOG << "Reading word_embedding...";
     CuMatrix <BaseFloat> word_embedding_mat;
     ReadKaldiObject(word_embedding_rxfilename, &word_embedding_mat);
 
@@ -306,7 +307,7 @@ int main(int argc, char *argv[]) {
     data.info = &info;
 
     data.lm_to_add_orig = new rnnlm::KaldiRnnlmDeterministicFst(data.max_ngram_order, *data.info);
-
+    KALDI_LOG << "Done reading";
     int res = 0;
     while (true) {
       if (!processPipeInput(data)) {
